@@ -1,0 +1,53 @@
+#include <iostream>
+
+int main() {
+	std::cout << "Help! My computer doesn't work!\n";
+
+	char choice;
+	bool done = false;
+
+	while (!done) {
+		std::cout << "Does the computer make any sounds "
+				  << "(fans, etc.) or show any lights? (y/n): ";
+		std::cin >> choice;
+
+		if (choice == 'n') {
+			std::cout << "Is it plugged in? (y/n): ";
+			std::cin >> choice;
+
+			if (choice == 'n') {
+				std::cout << "Plug it in.\n";
+			} else {
+				std::cout << "Is the switch in the \"on\" position? (y/n): ";
+				std::cin >> choice;
+
+				if (choice == 'n') {
+					std::cout << "Turn it on.\n";
+				} else {
+					std::cout << "Does the computer have a fuse? (y/n): ";
+					std::cin >> choice;
+
+					if (choice == 'n') {
+						std::cout << "Is the outlet OK? (y/n): ";
+						std::cin >> choice;
+
+						if (choice == 'n') {
+							std::cout << "Check the outlet's circuit breaker or fuse. "
+									  << "Move to a new outlet, if necessary.\n";
+						} else {
+							std::cout << "Please consult a service technician.\n";
+							done = true;
+						}
+					} else {
+						std::cout << "Check the fuse. Replace if necessary.\n";
+					}
+				}
+			}
+		} else {
+			std::cout << "Please consult a service technician.\n";
+			done = true;
+		}
+	}
+
+	return 0;
+}
